@@ -1,0 +1,178 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	float s, n, p, m;
+	cout << "Введите S: " << endl;
+	cin >> s;
+	cout << "Введите n: " << endl;
+	cin >> n;
+	cout << "Введите p: " << endl;
+	cin >> p;
+	float r;
+	r = p/100;	
+	if (s <= 0 or n <= 0 or p < 0 or (pow(1+r, n) == 1))
+	{
+		cout << "Некорректные двнные!" <<endl;
+	}
+	else
+	{
+		m =(s*r*(pow(1+r,n)))/(12*((pow(1+r, n))-1));
+		cout << "m: " << m << endl;
+	}
+}
+
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	double s, n, p, m;
+	int m1;
+	cout << "Введите S: " << endl;
+	cin >> s;
+	cout << "Введите n: " << endl;
+	cin >> n;
+	cout << "Введите m: " << endl;
+	cin >> m;
+	double div = 1000, rr, r,m0;	
+	if (s <= 0 or n <= 0 or m <= 0 )
+	{
+		cout << "Некорректные двнные!" <<endl;
+	}
+	else
+	{
+		for (double p = -100; p < 101; p = p + 1)
+		{
+			r = p/100;
+			if (p == 0)
+			{
+				m1 = s/(12*n);
+				if (m == m1)
+				{
+					rr = 0;
+					break;
+				}
+			} 
+			else
+			{
+				m0 = (s*r*(pow(1+r,n)))/(12*((pow(1+r, n))-1));
+			}
+			if(abs(m - m0) < div)
+			{
+				div = abs(m - m0);
+				rr = r;
+			}
+		}
+		cout << "Ссуда (%): " << rr*100;
+	}
+}
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	ifstream file("D:\\files C++\\homework\\dz.txt");
+	string str;
+	char a;
+	int x;
+	while (file >> str)
+	{
+		int len = str.length();
+		for(int i =0; i < len;i++)
+		{
+			a = str[i];
+			if ((a - '0')<11 and (a - '0') >= 0)
+			{
+				x = a - '0';
+				cout << x << " ";
+			}
+		}
+	}
+}
+
+
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	ifstream file("D:\\files C++\\homework\\dz.txt");
+	string str;
+	char a;
+	int x;
+	while (file >> str)
+	{
+		int len = str.length();
+		for(int i =0; i < len;i++)
+		{
+			a = str[i];
+			if ((a - '0')<11 and (a - '0') >= 0)
+			{
+				x = a - '0';
+				cout << x << " ";
+			}
+		}
+	}
+}
+
+
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+
+int main() {
+	string s = "AAAAAaaaaazzzZZZZZZbbZZZZZZZzzzbbbbbbb";
+	int j = 0;
+	for (int i = 0; i < s.length(); i++)
+	{
+		for (j = 0; j < s.length() - i - 1; j++)
+		{
+			float ind1;
+			float ind2;
+			if (s[j] > 96)
+			{
+				ind1 = (s[j]%1000) - 31.5;
+			}
+			else
+			{
+				ind1 = s[j] % 1000;
+			}
+			if (s[j+1] > 96)
+			{
+				ind2 = (s[j+1]%1000) - 31.5;
+			}
+			else
+			{
+				ind2 = s[j + 1] % 1000;
+			}
+			if (ind1 > ind2)
+			{
+				int tmp = s[j];
+				s[j] = s[j + 1];
+				s[j + 1] = tmp;
+			}
+		}
+	}
+	cout << s << endl;
+	return 0;
+}
