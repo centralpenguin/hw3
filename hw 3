@@ -176,3 +176,34 @@ int main() {
 	cout << s << endl;
 	return 0;
 }
+
+
+
+n = int(input())
+lis = []
+for _ in range(n):
+    sps = [float(i) for i in input().split()]
+    lis.append(sps)
+for x in range(n):
+    print(lis[x])
+
+for i in range(0,n):
+    for j in range(i+1,n):
+        if lis[j][i] != 0:
+            k = -lis[i][i]/lis[j][i]
+            for x in range(len(lis[j])):
+                lis[j][x] = lis[j][x] * k + lis[i][x]
+print("")
+for x in range(n):
+    print(lis[x])
+print("")
+for x in range(n-1,-1,-1):
+    if lis[x][x] != 1:
+        k = lis[x][x]
+        for z in range(len(lis[x])):
+            lis[x][z] = lis[x][z] / k
+    print("")
+    break
+for x in range(n):
+    print(lis[x])
+print("")
