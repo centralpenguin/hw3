@@ -13,7 +13,7 @@ int main()
 	cin >> p;
 	float r;
 	r = p/100;	
-	if (s <= 0 or n <= 0 or p < 0 or (pow(1+r, n) == 1))
+	if (s <= 0 or n <= 0 or (pow(1+r, n) == 1))
 	{
 		cout << "Некорректные двнные!" <<endl;
 	}
